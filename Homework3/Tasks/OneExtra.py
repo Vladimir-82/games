@@ -8,21 +8,17 @@
 
 class MyClass():
 
-    def myfunc(self, ):
-        '''
-        Here we write all the logic and return result
+    def myfunc(self, var):
 
-        :return:
-        '''
-        result = None
+        result = [i for i in var if var.count(i)==1]
 
         return result # here we retrun result
 
 if __name__ == '__main__':
    # Here we can make console input and check how function works
 
-   # var = input('Input VAR: ')
+   var = [1, 5, 2, 9, 2, 9, 1]
 
-   result = MyClass().myfunc()
+   result = MyClass().myfunc(var)
 
    print(result)
