@@ -17,9 +17,10 @@
 
 class MyClass():
 
-    def myfunc(self,n):
-        my_number=1234
-
+    def myfunc(self, n):
+        my_number='1234'
+        for i in my_number:
+            if i in n:
         result = None
 
         return result # here we retrun result
