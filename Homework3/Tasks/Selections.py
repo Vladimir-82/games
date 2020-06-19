@@ -27,21 +27,53 @@ selection(
 
 class MyClass():
 
-    def myfunc(self, ):
-        '''
-        Here we write all the logic and return result
+    def myfunc(self, var):
+        list_of_candidates = []
+        votes_list = []
+        n = len(var) // 2
+        for i in var:
+            if i not in list_of_candidates:
+                list_of_candidates.append(i)
+        candidate_1 = list_of_candidates[0]
+        candidate_2 = list_of_candidates[1]
+        candidate_3 = list_of_candidates[2]
+        votes_1 = var.count(candidate_1)
+        votes_list.append(votes_1)
+        votes_2 = var.count(candidate_2)
+        votes_list.append(votes_2)
+        votes_3 = var.count(candidate_3)
+        votes_list.append(votes_3)
+        dc = dict((zip(list_of_candidates, votes_list)))
 
-        :return:
-        '''
-        result = None
+        lider = sorted(votes_list)[-1]
+        second = sorted(votes_list)[-2]
+        if max(votes_list) > n:
+            for k, v in dc.items():
+                if v == lider:
+                    return print('win', k)
+        elif lider == second:
+            for k, v in dc.items():
+                if v == lider == second:
+                    return print('во второй тур проходит', k)
+        else:
+            for k, v in dc.items():
+                if v == lider:
+                    return print('во второй тур проходит', k)
+                if v == second:
+                    return print('во второй тур проходит', k)
 
-        return result # here we retrun result
 
 if __name__ == '__main__':
    # Here we can make console input and check how function works
 
-   # var = input('Input VAR: ')
+   var = ["Полуэкт Варфоломеев",
+        "Полуэкт Варфоломеев",
+        "Тугарин Змей",
+        "Тугарин Змей",
+        "Давыд Городецкий",
+        "Давыд Городецкий",
+        "Давыд Городецкий"]
 
-   result = MyClass().myfunc()
+   result = MyClass().myfunc(var)
 
-   print(result)
+

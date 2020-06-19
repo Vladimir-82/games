@@ -23,12 +23,10 @@
 
 class MyClass():
 
-    def myfunc(self):
-        '''
-        Here we write all the logic and return result
-
-        :return:
-        '''
+    def myfunc(self, n):
+        my_number='1234'
+        for i in my_number:
+            if i in n:
         result = None
 
         return result # here we retrun result
@@ -38,7 +36,7 @@ if __name__ == '__main__':
 
    # var = input('Input VAR: ')
 
-   result = MyClass().myfunc()
+   result = MyClass().myfunc('3219')
 
    print(result)
 
