@@ -28,40 +28,36 @@ selection(
 class MyClass():
 
     def myfunc(self, var):
+        N = len(var) // 2
         list_of_candidates = []
         votes_list = []
-        n = len(var) // 2
         for i in var:
             if i not in list_of_candidates:
                 list_of_candidates.append(i)
-        candidate_1 = list_of_candidates[0]
-        candidate_2 = list_of_candidates[1]
-        candidate_3 = list_of_candidates[2]
-        votes_1 = var.count(candidate_1)
-        votes_list.append(votes_1)
-        votes_2 = var.count(candidate_2)
-        votes_list.append(votes_2)
-        votes_3 = var.count(candidate_3)
-        votes_list.append(votes_3)
-        dc = dict((zip(list_of_candidates, votes_list)))
+        for i in list_of_candidates:
+            votes_list.append(var.count(i))
+
+        list_of_candidates = tuple(list_of_candidates)
 
         lider = sorted(votes_list)[-1]
         second = sorted(votes_list)[-2]
-        if max(votes_list) > n:
-            for k, v in dc.items():
-                if v == lider:
-                    return print('win', k)
-        elif lider == second:
-            for k, v in dc.items():
-                if v == lider == second:
-                    return print('во второй тур проходит', k)
-        else:
-            for k, v in dc.items():
-                if v == lider:
-                    return print('во второй тур проходит', k)
-                if v == second:
-                    return print('во второй тур проходит', k)
 
+        dc = dict((zip(list_of_candidates, votes_list)))
+
+        for k, v in dc.items():
+            if v == lider and v > N:
+                print('win', k)
+            elif v == lider == second:
+                print('во второй тур проходит:', k)
+                continue
+                if v == second:
+                    print('во второй тур проходит:', k)
+            else:
+                if v == lider:
+                    print('во второй тур проходит:', k)
+
+                if v == second:
+                    print('во второй тур проходит:', k)
 
 if __name__ == '__main__':
    # Here we can make console input and check how function works
@@ -69,8 +65,6 @@ if __name__ == '__main__':
    var = ["Полуэкт Варфоломеев",
         "Полуэкт Варфоломеев",
         "Тугарин Змей",
-        "Тугарин Змей",
-        "Давыд Городецкий",
         "Давыд Городецкий",
         "Давыд Городецкий"]
 
