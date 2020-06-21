@@ -40,7 +40,7 @@ def bulls_cows(n):
         if your_number!=n:
             bulls_cows(n)
     return 'You won, my number is', n
-n = '12345'
+n = '1234'
 print('I guessed the number, try to guess it')
 print(bulls_cows(n))
 
