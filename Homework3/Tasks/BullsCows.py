@@ -20,23 +20,27 @@
 >>> 3219
 Вы выиграли!
 '''
-
-class MyClass():
-
-    def myfunc(self, n):
-        my_number='1234'
-        for i in my_number:
+# программа работает, не смог ее поместить в ваш шаблон
+def bulls_cows(n):
+    print('Enter your number:')
+    your_number=str(input())
+    if your_number==n:
+        return 'You won, my number is', n
+    else:
+        bulls=0
+        cows=0
+        for i in your_number:
+            if i in n and your_number.index(i)==n.index(i):
+                print('Bull in position', n.index(i)+1)
+                bulls+=1
             if i in n:
-        result = None
-
-        return result # here we retrun result
-
-if __name__ == '__main__':
-   # Here we can make console input and check how function works
-
-   # var = input('Input VAR: ')
-
-   result = MyClass().myfunc('3219')
-
-   print(result)
+                cows+=1
+        cows=cows-bulls
+        print('bulls:', bulls, 'cows:', cows)
+        if your_number!=n:
+            bulls_cows(n)
+    return 'You won, my number is', n
+n = '12345'
+print('I guessed the number, try to guess it')
+print(bulls_cows(n))
 
