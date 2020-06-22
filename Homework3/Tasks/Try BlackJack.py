@@ -11,9 +11,7 @@ def diller_cars_give(Koloda):
 from random import shuffle as shuf
 Koloda=[2,3,4,5,6,7,8,9,10,10,10,10,11]*4
 shuf(Koloda)
-
 print('Начнем игру!')
-
 your_money=1000
 you_cards=[]
 diller_cards=[]
