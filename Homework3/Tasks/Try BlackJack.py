@@ -39,48 +39,52 @@ while True:
         win=current*1.5
         your_money=your_money+win
         print('ваш банк', your_money)
-        break
+
 
     elif sum(you_cards)==22:
         print('Вы проиграли!')
         your_money = your_money - current
         print('ваш банк', your_money)
-        break
 
-    else:
-        while True:
-            chouse=str(input('Хотите еще карту? (да/нет)'))
-            if chouse=='да':
-                your_cars_give(Koloda)
-                if sum(you_cards)>21:
-                    print('Вы проиграли!')
-                    your_money = your_money - current
-                    break
-                elif sum(you_cards)==21:
-                    break
-                else:
-                    print('сумма ваших очков', sum(you_cards))
 
-            else:
-                print('сумма ваших очков', sum(you_cards))
+
+    while True:
+        chouse=str(input('Хотите еще карту? (да/нет)'))
+        if chouse=='да':
+            your_cars_give(Koloda)
+            print('сумма ваших очков', sum(you_cards))
+            if sum(you_cards)>21:
+                print('Вы прогорели!')
+                your_money = your_money - current
                 break
+            elif sum(you_cards)==21:
+                break
+        else:
+            print('сумма ваших очков', sum(you_cards))
+            break
 
-
-        if sum(diller_cards) < sum(you_cards):
+    while True:
+        if sum(diller_cards) <= sum(you_cards):
             diller_cars_give(Koloda)
-        elif sum(diller_cards) > sum(you_cards):
-            print('Вы проиграли!')
-            your_money = your_money - current
-            break
-        elif sum(diller_cards)>21:
-            print('Вы выиграли!')
-            win = current * 1.5
-            your_money = your_money + win
-            break
-        elif sum(diller_cards)==sum(you_cards):
-            print('Переигровка')
-            break
 
+            if sum(diller_cards) > sum(you_cards) and sum(diller_cards)<=21:
+                print('Вы проиграли!')
+                your_money = your_money - current
+                break
+            elif sum(diller_cards)>21:
+                print('Вы выиграли!')
+                win = current * 1.5
+                your_money = your_money + win
+                break
+            elif sum(diller_cards)==sum(you_cards):
+                print('Переигровка')
+                break
+        else:
+            print('сумма очков диллера', sum(diller_cards))
+            break
+        print('сумма очков диллера', sum(diller_cards))
+
+    #print('сумма очков диллера', sum(diller_cards))
 
 
 
