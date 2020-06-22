@@ -86,11 +86,5 @@ while True:
 
     #print('сумма очков диллера', sum(diller_cards))
 
-
-
-
-
-
-
     print('ваш банк', your_money)
 
