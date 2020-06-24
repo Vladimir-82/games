@@ -42,18 +42,57 @@ Q♥
 Бонусные очки
 Запоминать количество денег (очков) пользователя - со старта 1000. При перезапуске программы она вспоминает сколько осталось у игрока в прошлой сессии
 '''
+from random import shuffle
+CARD_VALUES=['2','3','4','5','6','7','8','9','10','J','Q','K','A']
+CARD_SCORE=[2,3,4,5,6,7,8,9,10,10,10,10,(11, 1)]
+CARD_SUITS=['\u2665', '\u2666', '\u2663', '\u2660']
+    class Card:
+        def __init__(self, number):
+            self.suit, self.value=divmod(number,13)
+            self.score=CARD_SCORE[self.value]
+        def __str__(self):
+            return '{}{}'.format(self.suit, self.value)
+        def __repr__(self):
+            return  str(self)
 
-class MyClass():
 
-    def myfunc(self):
-        '''
-        Here we write all the logic and return result
+    class Deck:
+        def __init__(self):
+            self.cards=[Card(i) for i in range(52)]
+            self.shuffle_deck()
+            self.used_cards=[]
 
-        :return:
-        '''
-        result = None
+        def __repr__(self):
+            return str(self)
+        def __str__(self):
+            return 'Cards'
+        def __len__(self):
+            len(self.draw_cards())
 
-        return result # here we retrun result
+        def shuffle_deck(self):
+            shuffle(self.cards)
+
+        def draw_card(self):
+            card=self.cards.pop()
+            self.used_cards.append(card)
+            return card
+
+        def get_card_scores(self, cards):
+
+
+    class Table:
+        def __init__(self, gamers_count):
+            self.gamers_count=gamers_count
+
+    def game():
+        deck=Deck()
+        dealer_cards=[deck.draw_card()]
+        gamers_card=[deck.draw_card(), deck.draw_card()]
+        gamers_scores=deck.get_card_scores(gamers_card)
+
+
+
+
 
 if __name__ == '__main__':
    # Here we can make console input and check how function works
