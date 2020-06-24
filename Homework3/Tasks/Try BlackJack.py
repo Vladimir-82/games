@@ -1,88 +1,64 @@
-def your_cars_give(Koloda):
-    your_card = Koloda.pop()
-    print('Ваша карта', your_card)
-    you_cards.append(your_card)
+from random import shuffle
 
-def diller_cars_give(Koloda):
-    diller_card = Koloda.pop()
-    print('Карта диллера', diller_card)
-    diller_cards.append(diller_card)
-
-from random import shuffle as shuf
-Koloda=[2,3,4,5,6,7,8,9,10,10,10,10,11]*4
-shuf(Koloda)
-print('Начнем игру!')
-your_money=1000
-you_cards=[]
-diller_cards=[]
-
-while True:
-    if your_money <= 0:
-        print('Ты потерял всё, мальчик')
-        break
-    you_cards.clear()
-    diller_cards.clear()
-    print('Введите ставку:')
-    current=float(input())
-    if current>your_money:
-        print('У тебя нет столько денег, мальчик')
-        break
-    print('Начинаю раздачу')
-    your_cars_give(Koloda)
-    your_cars_give(Koloda)
-    diller_cars_give(Koloda)
-
-    if sum(you_cards)==21:
-        print('Вы выиграли!')
-        win=current*1.5
-        your_money=your_money+win
-        print('ваш банк', your_money)
+CARD_VALUES = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
+CARD_SCORE = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, (11, 1)]
+CARD_SUITS = ['\u2665', '\u2666', '\u2663', '\u2660']
 
 
-    elif sum(you_cards)==22:
-        print('Вы проиграли!')
-        your_money = your_money - current
-        print('ваш банк', your_money)
+class Card:
+    def __init__(self, number):
+        self.suit, self.value = divmod(number, 13)
+        self.score = CARD_SCORE[self.value]
+
+    def __str__(self):
+        return '{}{}'.format(self.suit, self.value)
+
+    def __repr__(self):
+        return str(self)
 
 
+class Deck:
+    def __init__(self):
+        self.cards = [Card(i) for i in range(52)]
+        self.shuffle_deck()
+        self.used_cards = []
 
-    while True:
-        chouse=str(input('Хотите еще карту? (да/нет)'))
-        if chouse=='да':
-            your_cars_give(Koloda)
-            print('сумма ваших очков', sum(you_cards))
-            if sum(you_cards)>21:
-                print('Вы прогорели!')
-                your_money = your_money - current
-                break
-            elif sum(you_cards)==21:
-                break
-        else:
-            print('сумма ваших очков', sum(you_cards))
-            break
+    def __repr__(self):
+        return str(self)
 
-    while True:
-        if sum(diller_cards) <= sum(you_cards):
-            diller_cars_give(Koloda)
+    def __str__(self):
+        return 'Cards'
 
-            if sum(diller_cards) > sum(you_cards) and sum(diller_cards)<=21:
-                print('Вы проиграли!')
-                your_money = your_money - current
-                break
-            elif sum(diller_cards)>21:
-                print('Вы выиграли!')
-                win = current * 1.5
-                your_money = your_money + win
-                break
-            elif sum(diller_cards)==sum(you_cards):
-                print('Переигровка')
-                break
-        else:
-            print('сумма очков диллера', sum(diller_cards))
-            break
-        print('сумма очков диллера', sum(diller_cards))
+    def __len__(self):
+        len(self.draw_cards())
 
-    #print('сумма очков диллера', sum(diller_cards))
+    def shuffle_deck(self):
+        shuffle(self.cards)
 
-    print('ваш банк', your_money)
+    def draw_card(self):
+        card = self.cards.pop()
+        self.used_cards.append(card)
+        return card
 
+    def get_card_scores(self, cards):
+        res = sum(cards)
+        return res
+
+
+class Table:
+    def __init__(self, gamers_count):
+        self.gamers_count = gamers_count
+
+
+def game():
+    deck = Deck()
+    dealer_cards = [deck.draw_card()]
+    gamers_card = [deck.draw_card(), deck.draw_card()]
+    gamers_scores = deck.get_card_scores(gamers_card)
+    choise = str(input('Another card?Y/N'))
+    if choise == Y:
+        gamers_card = deck.draw_card()
+
+
+result=game()
+print(result)
