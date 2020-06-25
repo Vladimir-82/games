@@ -55,9 +55,16 @@ def game():
     dealer_cards = [deck.draw_card()]
     gamers_card = [deck.draw_card(), deck.draw_card()]
     gamers_scores = deck.get_card_scores(gamers_card)
-    choise = str(input('Another card?Y/N'))
-    if choise == Y:
-        gamers_card = deck.draw_card()
+    print(gamers_scores)
+
+    gamers_cards=[]
+    while True:
+        choise = str(input('Another card?(Y/N)'))
+        if choise == 'Y':
+            gamers_cards = gamers_card.append(deck.draw_card())
+            gamers_scores = deck.get_card_scores(gamers_cards)
+            print(gamers_scores)
+        print('OK')
 
 
 result=game()
