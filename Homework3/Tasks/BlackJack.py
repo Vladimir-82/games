@@ -100,7 +100,7 @@ def game():
     gamers_scores = deck.get_card_scores(gamers_card)
     choise = str(input('Another card?Y/N'))
     if choise == Y:
-        gamers_card = deck.draw_card()
+        gamers_card = gamers_card.deck.draw_card()
 
 
 result=game()
