@@ -25,7 +25,7 @@ if number==member_number:
 else:
     while member_number!=number:
         print(f'Attempt{n+1}')
-
+        member_number = int(input('Enter a number:'))
         if member_number<number:
             smoller(member_number)
         else:
