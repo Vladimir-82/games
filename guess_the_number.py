@@ -1,6 +1,6 @@
 def smoller(member_number):
     print('My number is smaller than you guess!!!')
-    return member_number//2
+    return member_number
 
 def bigger(member_number):
     print('My number is bigger than you guess!!!')
@@ -8,7 +8,8 @@ def bigger(member_number):
 
 
 import time
-number=12
+import random
+number=random.randint(1,10)
 member_number=None
 print('i did guessed the number:')
 time.sleep(3)
