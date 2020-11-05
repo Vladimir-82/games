@@ -1,4 +1,4 @@
-
+import random
 words='свобода равенство братство'.split()
 HANGMAN_PICS=["""
  +---+
@@ -41,7 +41,7 @@ HANGMAN_PICS=["""
 
 def getRandomWord(wordList):
     """Функция возвращает строку из переданного списка"""
-    wordIndex=randomrandint(0, len(wordList)-1)
+    wordIndex=random.randint(0, len(wordList)-1)
     return wordList[wordIndex]
 
 def displayBoard(missedLetters, correctLetters, secretWord):
@@ -83,7 +83,7 @@ def getGuess(alreadyGuessed):
 def playAgain():
     """эта функция возвращает значение True, если игрок сиграть заново
     В противном случае False"""
-    print('Хотите сыграть ещё? (Да или Нет')
+    print('Хотите сыграть ещё? (Да или Нет)')
     return input().lower().startswith('д')
 
 
@@ -115,7 +115,7 @@ while True:
         if len(missedLetters) == len(HANGMAN_PICS)-1:
             displayBoard(missedLetters, correctLetters, secretWord)
 
-        print('Вы исчерпали все попытки!')
+    print('Вы исчерпали все попытки!')
     gameIsDone=True
 
     if gameIsDone:
