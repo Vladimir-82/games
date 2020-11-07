@@ -14,7 +14,7 @@ def draw(hight, weght):
     begin_point_y=int(display_y/2)-int(hight/2)
 
     diametr=int(sqrt(pow(weght, 2) + pow(hight, 2)))
-
+    print(f'Диаметр окружности={diametr}', end=' мм')
     rect(screen, (0, 0, 255), (begin_point_x, begin_point_y, weght, hight), 1)
     circle(screen, (255, 255, 255), (int(display_x/2), int(display_y/2)), int(diametr/2), 1)
 
@@ -27,6 +27,7 @@ def draw(hight, weght):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 finished = True
+
 
     pygame.quit()
 
