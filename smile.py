@@ -11,10 +11,18 @@ screen = pygame.display.set_mode((screen_size_x, screen_size_y))
 center_x=screen_size_x//2
 center_y=screen_size_y//2
 smile_diametr=200
+eye_diametr=smile_diametr//4
 
-circle(screen, (255, 255, 0), (center_x, center_x), smile_diametr)
-for x_ey
+circle(screen, (255, 255, 0), (center_x, center_y), smile_diametr)
 
+for x_eye, y_eye in (center_x-2*eye_diametr, center_y-eye_diametr), (center_x+2*eye_diametr, center_y-eye_diametr):
+    circle(screen, (255, 0, 0), (x_eye, y_eye), eye_diametr)
+    circle(screen, (0, 0, 0), (x_eye, y_eye), eye_diametr//2)
+
+rect(screen, (0, 0, 0), (center_x-2*eye_diametr, center_y+eye_diametr, 4*eye_diametr, eye_diametr))
+
+line(screen, (0, 0, 255), (center_x-eye_diametr//2, center_y-eye_diametr), (center_x-2*eye_diametr, center_y-3*eye_diametr), 20)
+line(screen, (0, 0, 255), (center_x+eye_diametr//2, center_y-eye_diametr), (center_x+3*eye_diametr, center_y-4*eye_diametr), 20)
 #rect(screen, (255, 0, 255), (100, 100, 200, 200))
 #rect(screen, (0, 0, 255), (100, 100, 200, 200), 5)
 #polygon(screen, (255, 255, 0), [(100,100), (200,50),(300,100), (100,100)])
