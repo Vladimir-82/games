@@ -21,14 +21,9 @@ for x_eye, y_eye in (center_x-2*eye_diametr, center_y-eye_diametr), (center_x+2*
 
 rect(screen, (0, 0, 0), (center_x-2*eye_diametr, center_y+eye_diametr, 4*eye_diametr, eye_diametr))
 
+
 line(screen, (0, 0, 255), (center_x-eye_diametr//2, center_y-eye_diametr), (center_x-2*eye_diametr, center_y-3*eye_diametr), 20)
 line(screen, (0, 0, 255), (center_x+eye_diametr//2, center_y-eye_diametr), (center_x+3*eye_diametr, center_y-4*eye_diametr), 20)
-#rect(screen, (255, 0, 255), (100, 100, 200, 200))
-#rect(screen, (0, 0, 255), (100, 100, 200, 200), 5)
-#polygon(screen, (255, 255, 0), [(100,100), (200,50),(300,100), (100,100)])
-#polygon(screen, (0, 0, 255), [(100,100), (200,50),(300,100), (100,100)], 5)
-
-#circle(screen, (255, 255, 255), (200, 175), 50, 10)
 
 pygame.display.update()
 clock = pygame.time.Clock()
