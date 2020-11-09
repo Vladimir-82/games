@@ -28,7 +28,7 @@ def draw(hight, weght):
             if event.type == pygame.QUIT:
                 finished = True
 
-humty dumty
+
     pygame.quit()
 
 hight=608
