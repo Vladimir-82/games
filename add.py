@@ -6,6 +6,7 @@ def add(object_1, object_2):
         return int(object_1) + int(object_2)
     else:
         return None
+
 obj1=2
 obj2='3'
 print(add(obj1, obj2))
