@@ -14,35 +14,13 @@ class Goods:
     def get_info_good(self):
         return self.good, self.price
 
-count_of_members=3
-John=Person('John', 100)
-Ivan=Person('Ivan', 0)
-Nataly=Person('Nataly', 20)
+count_of_members=int(input('Введите количество участников:'))
 
-count_of_goods=3
-Vodka=Goods('Smirnoff', 100)
-Presic=Goods('Durex', 10)
-Candy=Goods('Snikers', 10)
+#for i in range(1, count_of_members+1):
+member_1=Person('John', 100)
+member_2=Person('Ivan', 0)
+member_3=Person('Natalia', 20)
+dict_members={}
 
-#print(Ivan.contribution)
-Totall_contribution=John.contribution + Ivan.contribution + Nataly.contribution
-print(Totall_contribution)
-Summory_from_each_ather=Totall_contribution/count_of_members
-print(Summory_from_each_ather)
+#dict_members.update('member_1.name': member_1.contribution)
 
-Totall_goods=Vodka.price + Presic.price + Candy.price
-
-contribution_list=[]
-
-if Totall_contribution==Totall_goods:
-    for i in John.contribution, Ivan.contribution, Nataly.contribution:
-        contribution_list.append(i)
-        if i > Summory_from_each_ather:
-            diff=i-Summory_from_each_ather
-        elif i < Summory_from_each_ather:
-            diff=Summory_from_each_ather-i
-        else:
-            
-
-else:
-    Print('You have a mistake price goods or contributions members')
