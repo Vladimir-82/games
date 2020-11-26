@@ -10,20 +10,16 @@ def display(HANGMAN_PICS, WORDS):
     index_hangman = 0
 
     while '*' in show_current_word:
-
         current_letter = input('Введите букву:')
         current_letter=current_letter.lower()
         if current_letter in current_word:
 
-            index_letter = current_word.index(current_letter)
-
-
-            show_current_word=show_current_word[0:index_letter:] + current_letter + show_current_word[index_letter+1::]
-
-
-            print(show_current_word)
-            if '*' not in show_current_word:
-                print('YOU WON')
+            for index_letter in range(0, len(current_word)):
+                if current_word[index_letter]==current_letter:
+                    show_current_word = show_current_word[0:index_letter:] + current_letter + show_current_word[index_letter + 1::]
+                    print(show_current_word)
+                    if '*' not in show_current_word:
+                        print('YOU WON')
 
         else:
             print((HANGMAN_PICS[index_hangman]))
