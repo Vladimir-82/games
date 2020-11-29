@@ -42,7 +42,7 @@ def display(HANGMAN_PICS, WORDS):
                 break
             index_hangman+=1
 
-WORDS = 'кот ёжик собака'.split()
+WORDS = 'кот ёжик собака корова лошадь тигр лев шакал пантера слон жираф носорог бегемот броненосец медведь лиса волк заяц кролик кобан рысь'.split()
 HANGMAN_PICS=["""
  +---+
      |
@@ -84,6 +84,7 @@ HANGMAN_PICS=["""
 
 print('Начнем!')
 print()
+print('Попробуйте отгадать животное, или будете повешаны!!!')
 while True:
     display(HANGMAN_PICS, WORDS)
     game=input('Поиграем еще? (Да, Нет):').lower()
