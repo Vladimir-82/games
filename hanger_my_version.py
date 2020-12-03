@@ -1,16 +1,25 @@
 import random
 
-def letter_being_allready(): #еще не закончена
+def letter_being_allready():
+    named_letters = []
     letter_list = ['а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т',
                    'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ь', 'э', 'ю', 'я']
 
-    current_letter=None
     while True:
-        if current_letter not in letter_list or len(current_letter)>1:
-            current_letter = input('Введите букву русского алфавита:').lower()
+        current_letter=input('Введите букву:')
+        if current_letter not in named_letters or current_letter not in letter_list:
 
-        else:
-            return current_letter
+            if current_letter not in named_letters:
+                named_letters.append(current_letter)
+            else:
+                print('Вы уже называли эту букву!')
+
+            if current_letter not in letter_list:
+                print('Введите букву русского алфавита:')
+
+
+        return current_letter
+
 
 def display(HANGMAN_PICS, WORDS):
 
